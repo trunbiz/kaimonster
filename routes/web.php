@@ -17,6 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'Admin'],function (){
+Route::group(['namespace' => 'Auth'], function (){
+    Route::group(['prefix'=>'login'],function (){
+        Route::get('/','authController@showLogin');
+    });
+});
 
+Route::group(['namespace' => 'Admin'], function (){
+    Route::group(['prefix'=>'admin'],function (){
+        Route::get('/',function (){
+            echo 111;
+        });
+    });
 });
