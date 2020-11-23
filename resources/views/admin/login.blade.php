@@ -31,16 +31,17 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form action="{{asset('login')}}" method="POST">
+              {{ csrf_field() }}
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Username" required="" name="username" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="Password" required="" name="password"/>
               </div>
               <div>
-                <button class="btn btn-default submit" href="index.html">Log in</button>
+                <button class="btn btn-default submit">Log in</button>
                 <a class="reset_pass" href="#">Lost your password?</a>
               </div>
 

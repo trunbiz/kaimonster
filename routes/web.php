@@ -20,13 +20,12 @@ Route::get('/', function () {
 Route::group(['namespace' => 'Auth'], function (){
     Route::group(['prefix'=>'login'],function (){
         Route::get('/','authController@showLogin');
+        Route::post('/','authController@login');
     });
 });
 
 Route::group(['namespace' => 'Admin'], function (){
     Route::group(['prefix'=>'admin'],function (){
-        Route::get('/',function (){
-            echo 111;
-        });
+        Route::get('/','indexController@index');
     });
 });
