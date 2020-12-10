@@ -16,6 +16,52 @@ class User extends Authenticatable
      * @var array
      */
     protected $table = 'users';
+
+    public function addItem($request)
+    {
+        try {
+            $item = new usersModel();
+            $item->username = $request->username;
+            $item->fullname = $request->fullname;
+            $item->email = $request->email;
+            $item->phone = $request->phone;
+            $item->address = $request->address;
+            $item->description = $request->description;
+            $item->password = bcrypt($request->password);
+            if ($request->hasFile('img')) {
+                $filename = $request->img->getClientOriginalName();
+                $item->img = $filename;
+                $request->img->move('public/media', $filename);
+            }
+            $item->save();
+            return true;
+        } catch (Exception $ex) {
+            return false;
+        }
+    }
+
+    public function editItem($request, $id){
+        try{
+            $item = User::find($id);
+            $item->username = $request->username;
+            $item->fullname = $request->fullname;
+            $item->email = $request->email;
+            $item->phone = $request->phone;
+            $item->address = $request->address;
+            $item->description = $request->description;
+            $item->password = bcrypt($request->password);
+            if ($request->hasFile('img')) {
+                $filename = $request->img->getClientOriginalName();
+                $item->img = $filename;
+                $request->img->move('public/media', $filename);
+            }
+            $item->save();
+            return true;
+        } catch (Exception $ex) {
+            return false;
+        }
+    }
+
     protected $fillable = [
         'username', 'email', 'password',
     ];

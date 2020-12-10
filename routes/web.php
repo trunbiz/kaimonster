@@ -17,15 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace' => 'Auth'], function (){
-    Route::group(['prefix'=>'login'],function (){
-        Route::get('/','authController@showLogin');
-        Route::post('/','authController@login');
+Route::group(['namespace' => 'Auth'], function () {
+    Route::group(['prefix' => 'login', 'middleware' => 'CheckLogIn'], function () {
+        Route::get('/', 'authController@showLogin');
+        Route::post('/', 'authController@login');
     });
 });
 
-Route::group(['namespace' => 'Admin'], function (){
-    Route::group(['prefix'=>'admin'],function (){
-        Route::get('/','indexController@index');
+Route::group(['namespace' => 'Admin', 'middleware' => 'CheckLogOut'], function () {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('/', 'indexController@index');
+
+        //Todo: Erp
+        Route::group(['prefix' => 'erp'], function () {
+            Route::get('users', 'userController@listAll');
+        });
     });
 });

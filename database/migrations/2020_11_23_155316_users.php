@@ -18,10 +18,11 @@ class Users extends Migration
             $table->string('username')->nullable();
             $table->string('fullname')->nullable();
             $table->string('password')->nullable();
-            $table->date('birdday')->nullable();
+            $table->date('birthday')->nullable();
             $table->text('description')->nullable();
             $table->text('address')->nullable();
             $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

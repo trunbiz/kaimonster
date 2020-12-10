@@ -37,7 +37,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                    <a href="{{asset('/')}}" class="site_title"><i class="fa fa-paw"></i> <span>isu!</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>{{auth()->user()->username}}</h2>
+                        <h2>{{Auth::user()->username}}</h2>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -66,6 +66,11 @@
                                     <li><a href="index.html">Dashboard</a></li>
                                     <li><a href="index2.html">Dashboard2</a></li>
                                     <li><a href="index3.html">Dashboard3</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-tasks"></i> ERP <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{asset('/admin/erp/users')}}">Quản lý tài khoản</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
@@ -189,7 +194,7 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
+                                <img src="images/img.jpg" alt="">{{Auth::user()->username}}
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item"  href="javascript:;"> Profile</a>
