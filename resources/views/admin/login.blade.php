@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Login Isu! | </title>
+    <title>Login Kai | Beta</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">New to site?
+                <p class="change_link">Are you a new member?
                   <a href="#signup" class="to_register"> Create Account </a>
                 </p>
 
@@ -56,8 +56,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Isu!</h1>
-                  <p>©2020 Isu</p>
+                  <h1><i class="fa fa-paw"></i> Kai Monster!</h1>
+                  <p>©2021 Isu</p>
                 </div>
               </div>
             </form>

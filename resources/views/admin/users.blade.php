@@ -14,7 +14,6 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-label-left input_mask">
-
                         <div class="col-md-6 col-sm-6  form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" id="inputSuccess2"
                                    placeholder="username" name="Username">
@@ -22,7 +21,8 @@
                         </div>
 
                         <div class="col-md-6 col-sm-6  form-group has-feedback">
-                            <input type="text" class="form-control" id="inputSuccess3" placeholder="fullname" name="Fullname">
+                            <input type="text" class="form-control" id="inputSuccess3" placeholder="fullname"
+                                   name="Fullname">
                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
 
@@ -76,6 +76,7 @@
             </button>
         </div>
     </div>
+    {{$users}}
     <div class="row">
         <div class="x_panel">
             <div class="x_title">
@@ -100,44 +101,24 @@
                         <th>Phone</th>
                         <th>Address</th>
                         <th>Birth Day</th>
-                        <th>Confirmation place</th>
+                        <th>Updated At</th>
                         <th>Option</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+                    @foreach($users as $key => $user)
+                        <tr>
+                            <th scope="row">{{$key+1}}</th>
+                            <td>{{$user->username}}</td>
+                            <td>{{$user->fullname}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->phone}}</td>
+                            <td>{{$user->address}}</td>
+                            <td>{{$user->birthday}}</td>
+                            <td>{{$user->updated_at}}</td>
+                            <td></td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
 

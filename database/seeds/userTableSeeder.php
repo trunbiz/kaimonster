@@ -16,7 +16,7 @@ class userTableSeeder extends Seeder
             [
                 'username' => 'admin',
                 'fullname' => 'admin',
-                'password' => bcrypt('isu@2020'),
+                'password' => bcrypt('123456'),
                 'birthday' => '2020-11-11',
                 'description' => 'Tài khoản Admin',
                 'address' => 'Hà Nội',

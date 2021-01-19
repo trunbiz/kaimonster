@@ -26,11 +26,12 @@ Route::group(['namespace' => 'Auth'], function () {
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'CheckLogOut'], function () {
     Route::group(['prefix' => 'admin'], function () {
-        Route::get('/', 'indexController@index');
 
+        //Todo: URL chính
+        Route::get('/', 'indexController@index');
+        Route::get('users', 'userController@listAll');
         //Todo: Erp
         Route::group(['prefix' => 'erp'], function () {
-            Route::get('users', 'userController@listAll');
         });
     });
 });
