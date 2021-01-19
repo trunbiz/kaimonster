@@ -20,20 +20,19 @@ class User extends Authenticatable
     public function addItem($request)
     {
         try {
-            $item = new usersModel();
-            $item->username = $request->username;
-            $item->fullname = $request->fullname;
-            $item->email = $request->email;
-            $item->phone = $request->phone;
-            $item->address = $request->address;
-            $item->description = $request->description;
-            $item->password = bcrypt($request->password);
+            $this->username = $request->username;
+            $this->fullname = $request->fullname;
+            $this->email = $request->email;
+            $this->phone = $request->phone;
+            $this->address = $request->address;
+            $this->description = $request->description;
+            $this->password = bcrypt($request->password);
             if ($request->hasFile('img')) {
                 $filename = $request->img->getClientOriginalName();
-                $item->img = $filename;
+                $this->img = $filename;
                 $request->img->move('public/media', $filename);
             }
-            $item->save();
+            $this->save();
             return true;
         } catch (Exception $ex) {
             return false;
