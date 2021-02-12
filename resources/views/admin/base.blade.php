@@ -29,6 +29,10 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+
+    <!--Ajax----------------------------- -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 </head>
 
 <body class="nav-md">
@@ -70,7 +74,7 @@
                             </li>
                             <li><a><i class="fa fa-tasks"></i> ERP <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{asset('/admin/erp/users')}}">Quản lý tài khoản</a></li>
+                                    <li><a href="{{asset('/admin/erp/users')}}">Account management</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>

@@ -29,7 +29,14 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'CheckLogOut'], function (
 
         //Todo: URL chính
         Route::get('/', 'indexController@index');
-        Route::get('users', 'userController@listAll');
+
+        //Todo: quản lý userx
+        Route::group(['prefix' => 'users'], function () {
+            Route::get('/', 'userController@listAll');
+            Route::post('add', 'userController@addItem');
+            Route::get('update/{id}', 'userController@updateItem');
+            Route::post('delete', 'userController@deleteItem');
+        });
         //Todo: Erp
         Route::group(['prefix' => 'erp'], function () {
         });

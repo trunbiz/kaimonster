@@ -7,22 +7,23 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Form add user</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add user</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form class="form-label-left input_mask">
+                        {{ csrf_field() }}
                         <div class="col-md-6 col-sm-6  form-group has-feedback">
                             <input type="text" class="form-control has-feedback-left" id="inputSuccess2"
-                                   placeholder="username" name="Username">
+                                   placeholder="username" name="username">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                         </div>
 
                         <div class="col-md-6 col-sm-6  form-group has-feedback">
                             <input type="text" class="form-control" id="inputSuccess3" placeholder="fullname"
-                                   name="Fullname">
+                                   name="fullname">
                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
 
@@ -51,7 +52,7 @@
                                 <input class="date-picker form-control" placeholder="dd-mm-yyyy" type="text"
                                        required="required" type="text" onfocus="this.type='date'"
                                        onmouseover="this.type='date'" onclick="this.type='date'"
-                                       onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                       onblur="this.type='text'" onmouseout="timeFunctionLong(this)" name="birthday">
                                 <script>
                                     function timeFunctionLong(input) {
                                         setTimeout(function () {
@@ -64,8 +65,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    {{--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+                    <button type="button" class="btn btn-primary save">Save</button>
                 </div>
             </div>
         </div>
@@ -76,7 +77,6 @@
             </button>
         </div>
     </div>
-    {{$users}}
     <div class="row">
         <div class="x_panel">
             <div class="x_title">
@@ -116,7 +116,9 @@
                             <td>{{$user->address}}</td>
                             <td>{{$user->birthday}}</td>
                             <td>{{$user->updated_at}}</td>
-                            <td></td>
+                            <td><a href="" class="btn btn-outline-secondary btn-sm ">Sửa</a>
+                                <a href="" class="btn btn-outline-danger btn-sm ">Xóa</a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -125,4 +127,40 @@
             </div>
         </div>
     </div>
+    <script>
+        $(".save").click(function(e){
+            e.preventDefault();
+
+            let username = $("input[name=username]").val();
+            let fullname = $("input[name=fullname]").val();
+            let email = $("input[name=email]").val();
+            let phone = $("input[name=phone]").val();
+            let address = $("input[name=address]").val();
+            let birthday = $("input[name=birthday]").val();
+            let _token   = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                {{--url: "{{ route('admin/users/add')}}",--}}
+                url: "{{asset('/admin/users/add')}}",
+                type:"POST",
+                data:{
+                    username:username,
+                    fullname:fullname,
+                    email:email,
+                    phone:phone,
+                    address: address,
+                    birthday: birthday,
+                    _token: _token
+                },
+                success:function(response){
+                    if(response) {
+                        location.reload();
+                    }
+                    else {
+                        alert('Có lỗi khi lưu Data! Xin vui lòng thử lại');
+                    }
+                },
+            });
+        });
+    </script>
 @stop
