@@ -2,6 +2,7 @@
 @section('title','Isu - DevBasic')
 @section('main')
     <!-- top tiles -->
+    {{var_dump($weather)}}
     <div class="row" style="display: inline-block;">
         <div class="tile_count">
             <div class="col-md-2 col-sm-4  tile_stats_count">
@@ -645,10 +646,7 @@
                         <div class="x_content">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <div class="temperature"><b>Monday</b>, 07:30 AM
-                                        <span>F</span>
-                                        <span><b>C</b></span>
-                                    </div>
+                                    <div class="temperature"><b>Date: </b>{{date('Y-m-d')}}, <b>Time: </b>{{date('H:i:s')}}</div>
                                 </div>
                             </div>
                             <div class="row">
@@ -659,13 +657,13 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="weather-text">
-                                        <h2>Texas <br><i>Partly Cloudy Day</i></h2>
+                                        <h2>{{$weather->weather[0]->main}} <br><i>{{$weather->weather[0]->description}}</i></h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="weather-text pull-right">
-                                    <h3 class="degrees">23</h3>
+                                    <h3 class="degrees">{{$weather->main->temp - 273}}</h3>
                                 </div>
                             </div>
 

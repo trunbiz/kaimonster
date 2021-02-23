@@ -116,8 +116,8 @@
                             <td>{{$user->address}}</td>
                             <td>{{$user->birthday}}</td>
                             <td>{{$user->updated_at}}</td>
-                            <td><a href="" class="btn btn-outline-secondary btn-sm ">Sửa</a>
-                                <a href="" class="btn btn-outline-danger btn-sm ">Xóa</a>
+                            <td><a href="" class="btn btn-outline-secondary btn-sm ">edit</a>
+                                <a href="" class="btn btn-outline-danger btn-sm ">delete</a>
                             </td>
                         </tr>
                     @endforeach
