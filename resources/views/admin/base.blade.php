@@ -74,7 +74,7 @@
                             </li>
                             <li><a><i class="fa fa-tasks"></i> ERP <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{asset('/admin/erp/users')}}">Account management</a></li>
+                                    <li><a href="{{asset('/admin/users')}}">Quản lý tài khoản</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>

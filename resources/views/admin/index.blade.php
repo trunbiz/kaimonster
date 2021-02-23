@@ -2,7 +2,6 @@
 @section('title','Isu - DevBasic')
 @section('main')
     <!-- top tiles -->
-    {{var_dump($weather)}}
     <div class="row" style="display: inline-block;">
         <div class="tile_count">
             <div class="col-md-2 col-sm-4  tile_stats_count">

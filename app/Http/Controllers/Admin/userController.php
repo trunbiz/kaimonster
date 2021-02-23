@@ -26,7 +26,6 @@ class userController extends Controller
     }
 
     public function updateItem(Request $request, $id){
-        return 1;
         $this->user->editItem($request, $id);
         return back();
     }
