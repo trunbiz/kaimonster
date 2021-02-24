@@ -34,9 +34,17 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'CheckLogOut'], function (
         Route::group(['prefix' => 'users'], function () {
             Route::get('/', 'userController@listAll');
             Route::post('add', 'userController@addItem');
-            Route::get('update/{id}', 'userController@updateItem');
+            Route::post('update', 'userController@updateItem');
             Route::post('delete', 'userController@deleteItem');
         });
+        //Todo: Quản lý nhóm tài khoản
+        Route::group(['prefix' => 'groups'], function () {
+            Route::get('/', 'groupsController@listAll');
+            Route::post('add', 'groupsController@addItem');
+            Route::post('update', 'groupsController@updateItem');
+            Route::post('delete', 'groupsController@deleteItem');
+        });
+
         //Todo: Erp
         Route::group(['prefix' => 'erp'], function () {
         });

@@ -2,38 +2,36 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Groups;
 use App\Http\Controllers\Controller;
-use App\User;
 use Illuminate\Http\Request;
 
-class userController extends Controller
+class groupsController extends Controller
 {
     //
-    public $user;
+    private $groups;
     public function __construct()
     {
-        $this->user = new User();
+        $this->groups = new Groups();
     }
-
     public function listAll(){
-        $data['users'] = User::all();
-        return view('admin.users', $data);
+        $data['groups'] = Groups::all();
+        return view('admin.groups', $data);
     }
 
     public function addItem(Request $request){
-        $this->user->addItem($request);
+        $this->groups->addItem($request);
         return back();
     }
 
     public function updateItem(Request $request){
-        $this->user->editItem($request);
+        $this->groups->editItem($request);
         return back();
     }
 
     public function deleteItem(Request $request){
         $id = $request->id;
-        User::destroy($id);
+        Groups::destroy($id);
         return back();
     }
-
 }

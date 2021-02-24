@@ -17,6 +17,7 @@ class CreateGroupsTable extends Migration
             $table->id();
             $table->string('code')->nullable();
             $table->string('name')->nullable();
+            $table->integer('is_delete')->default(0);
             $table->timestamps();
         });
     }

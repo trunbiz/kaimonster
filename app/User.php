@@ -17,50 +17,6 @@ class User extends Authenticatable
      */
     protected $table = 'users';
 
-    public function addItem($request)
-    {
-        try {
-            $this->username = $request->username;
-            $this->fullname = $request->fullname;
-            $this->email = $request->email;
-            $this->phone = $request->phone;
-            $this->address = $request->address;
-            $this->description = $request->description;
-            $this->password = bcrypt($request->password);
-            if ($request->hasFile('img')) {
-                $filename = $request->img->getClientOriginalName();
-                $this->img = $filename;
-                $request->img->move('public/media', $filename);
-            }
-            $this->save();
-            return true;
-        } catch (Exception $ex) {
-            return false;
-        }
-    }
-
-    public function editItem($request, $id){
-        try{
-            $item = User::find($id);
-            $item->username = $request->username;
-            $item->fullname = $request->fullname;
-            $item->email = $request->email;
-            $item->phone = $request->phone;
-            $item->address = $request->address;
-            $item->description = $request->description;
-            $item->password = bcrypt($request->password);
-            if ($request->hasFile('img')) {
-                $filename = $request->img->getClientOriginalName();
-                $item->img = $filename;
-                $request->img->move('public/media', $filename);
-            }
-            $item->save();
-            return true;
-        } catch (Exception $ex) {
-            return false;
-        }
-    }
-
     protected $fillable = [
         'username', 'email', 'password',
     ];
@@ -82,4 +38,48 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function addItem($request)
+    {
+        try {
+            $this->username = $request->username;
+            $this->fullname = $request->fullname;
+            $this->email = $request->email;
+            $this->phone = $request->phone;
+            $this->address = $request->address;
+            $this->description = $request->description;
+            $this->password = bcrypt($request->password);
+            if ($request->hasFile('img')) {
+                $filename = $request->img->getClientOriginalName();
+                $this->img = $filename;
+                $request->img->move('public/media', $filename);
+            }
+            $this->save();
+            return true;
+        } catch (Exception $ex) {
+            return $ex;
+        }
+    }
+
+    public function editItem($request){
+        try{
+            $item = User::find($request->id);
+            $item->username = $request->username;
+            $item->fullname = $request->fullname;
+            $item->email = $request->email;
+            $item->phone = $request->phone;
+            $item->address = $request->address;
+            $item->description = $request->description;
+            $item->password = bcrypt($request->password);
+            if ($request->hasFile('img')) {
+                $filename = $request->img->getClientOriginalName();
+                $item->img = $filename;
+                $request->img->move('public/media', $filename);
+            }
+            $item->save();
+            return true;
+        } catch (Exception $ex) {
+            return $ex;
+        }
+    }
 }
