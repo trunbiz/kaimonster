@@ -49,7 +49,7 @@
 
               <div class="separator">
                 <p class="change_link">Are you a new member?
-                  <a href="#signup" class="to_register"> Create Account </a>
+                  <a href="{{asset('login'). '#signup'}}" class="to_register"> Create Account </a>
                 </p>
 
                 <div class="clearfix"></div>

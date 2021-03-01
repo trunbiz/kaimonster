@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Groups;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
@@ -9,20 +10,22 @@ use Illuminate\Http\Request;
 class userController extends Controller
 {
     //
-    public $user;
+    public $user, $group;
     public function __construct()
     {
         $this->user = new User();
+        $this->group = new Groups();
     }
 
     public function listAll(){
         $data['users'] = User::all();
+        $data['groups'] = Groups::all();
         return view('admin.users', $data);
     }
 
     public function addItem(Request $request){
         $this->user->addItem($request);
-        return back();
+//        return back();
     }
 
     public function updateItem(Request $request){

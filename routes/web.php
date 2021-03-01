@@ -22,6 +22,12 @@ Route::group(['namespace' => 'Auth'], function () {
         Route::get('/', 'authController@showLogin');
         Route::post('/', 'authController@login');
     });
+    Route::group(['prefix' => 'signup', 'middleware' => 'CheckLogOut'], function () {
+        Route::get('/', 'authController@showSignup');
+        Route::post('/', 'authController@signup');
+    });
+
+    Route::get('logout', 'authController@logout');
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'CheckLogOut'], function () {

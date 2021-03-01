@@ -35,6 +35,10 @@ class authController extends Controller
         return redirect()->intended('login');
     }
 
+    public function showSingUp(){
+        return redirect()->intended('login#signup');
+    }
+
     public function register(Request $request)
     {
         $data = [

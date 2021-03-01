@@ -49,15 +49,16 @@ class User extends Authenticatable
             $this->address = $request->address;
             $this->description = $request->description;
             $this->password = bcrypt($request->password);
-            if ($request->hasFile('img')) {
-                $filename = $request->img->getClientOriginalName();
-                $this->img = $filename;
-                $request->img->move('public/media', $filename);
+            $this->group_id = $request->group_id;
+            if ($request->hasFile('avatar')) {
+                $filename = $request->avatar->getClientOriginalName();
+                $this->avatar = $filename;
+                $request->avatar->move(public_path('\media'), $filename);
             }
             $this->save();
             return true;
         } catch (Exception $ex) {
-            return $ex;
+            return false;
         }
     }
 

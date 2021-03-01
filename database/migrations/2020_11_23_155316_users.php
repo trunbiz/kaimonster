@@ -21,6 +21,8 @@ class Users extends Migration
             $table->date('birthday')->nullable();
             $table->text('description')->nullable();
             $table->text('address')->nullable();
+            $table->text('avatar')->nullable();
+            $table->integer('group_id')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->integer('is_delete')->default(0);
