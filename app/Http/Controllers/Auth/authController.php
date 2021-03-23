@@ -41,16 +41,11 @@ class authController extends Controller
 
     public function register(Request $request)
     {
-        $data = [
-          'username' => $request->username,
-          'fullname' => $request->fullname,
-          'password' => bcrypt($request->password),
-          'birthday' => $request->birthday,
-          'description' => $request->description,
-          'address' => $request->address,
-          'email' => $request->email,
-        ];
         $user = new User();
-        $this->$user->save();
+        if ($user->checkDuplicateData($request)){
+            $user->addItem($request);
+            return redirect()->intended('login');
+        }
+        return redirect()->intended('login#signup')->withInput()->with('messageUser', 'Tài khoản đã tồn tại');
     }
 }

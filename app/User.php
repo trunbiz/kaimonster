@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -49,7 +50,7 @@ class User extends Authenticatable
             $this->address = $request->address;
             $this->description = $request->description;
             $this->password = bcrypt($request->password);
-            $this->group_id = $request->group_id;
+            $this->group_id = isset($request->group_id) ? $request->group_id : 5;
             if ($request->hasFile('avatar')) {
                 $filename = $request->avatar->getClientOriginalName();
                 $this->avatar = $filename;
@@ -60,6 +61,13 @@ class User extends Authenticatable
         } catch (Exception $ex) {
             return false;
         }
+    }
+
+    public function checkDuplicateData($request) {
+        $data = DB::table('users')->where('username', $request->username)->first();
+        if (empty($data))
+            return true;
+        return false;
     }
 
     public function editItem($request){

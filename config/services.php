@@ -29,5 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'facebook' => [
+        'client_id' => '420936362609024',
+        'client_secret' => 'c07e403d6b89d3bfd5188d7700a5a625',
+        'redirect' => 'http://localhost/kaimonster/public/guest/managerMessage/info',
+    ],
 
 ];

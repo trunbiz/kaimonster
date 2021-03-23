@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>@yield('title') | </title>
+    {{--<title>@yield('title') | </title>--}}
+    <title>Kai</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -76,6 +77,12 @@
                                 <ul class="nav child_menu">
                                     <li><a href="{{asset('/admin/users')}}">Quản lý tài khoản</a></li>
                                     <li><a href="{{asset('/admin/groups')}}">Quản lý nhóm tài khoản</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-facebook-square"></i> Tools Facebook <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{asset('guest/facebook')}}">Facebook</a></li>
+                                    <li><a href="{{asset('guest/managerMessage')}}">Quản lý tin nhắn Fanpage</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>

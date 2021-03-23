@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <base href="{{asset('/asset')}}/" />
+<head>
+    <base href="{{asset('/asset')}}/"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -21,85 +21,95 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body class="login">
-    <div>
-      <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
 
-      <div class="login_wrapper">
+    <div class="login_wrapper">
         <div class="animate form login_form">
-          <section class="login_content">
-            <form action="{{asset('login')}}" method="POST">
-              {{ csrf_field() }}
-              <h1>Login Form</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" name="username" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" name="password"/>
-              </div>
-              <div>
-                <button class="btn btn-default submit">Log in</button>
-                <a class="reset_pass" href="#">Lost your password?</a>
-              </div>
+            <section class="login_content">
+                <form action="{{asset('login')}}" method="POST">
+                    {{ csrf_field() }}
+                    <h1>Đăng nhập</h1>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Username" required="" name="username"/>
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" placeholder="Password" required="" name="password"/>
+                    </div>
+                    <div>
+                        <button class="btn btn-default submit">Đăng nhập</button>
+                        <a class="reset_pass" href="#">Quên mật khẩu?</a>
+                    </div>
 
-              <div class="clearfix"></div>
+                    <div class="clearfix"></div>
 
-              <div class="separator">
-                <p class="change_link">Are you a new member?
-                  <a href="{{asset('login'). '#signup'}}" class="to_register"> Create Account </a>
-                </p>
+                    <div class="separator">
+                        <p class="change_link">Bạn chưa có tài khoản?
+                            <a href="{{asset('login'). '#signup'}}" class="to_register"> Tạo tài khoản </a>
+                        </p>
 
-                <div class="clearfix"></div>
-                <br />
+                        <div class="clearfix"></div>
+                        <br/>
 
-                <div>
-                  <h1><i class="fa fa-paw"></i> Kai Monster!</h1>
-                  <p>©2021 Isu</p>
-                </div>
-              </div>
-            </form>
-          </section>
+                        <div>
+                            <h1><i class="fa fa-paw"></i> Kai Monster!</h1>
+                            <p>©2021 Isu.</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
 
         <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <form>
-              <h1>Create Account</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Submit</a>
-              </div>
+            <section class="login_content">
+                <form method="POST" action="{{asset('register')}}">
+                    {{ csrf_field() }}
+                    <h1>Đăng ký thành viên</h1>
+                    @if(Session::has('messageUser'))
+                        <p style="color: red">{{Session::get('messageUser')}}</p>
+                    @endif
+                    <div>
+                        <input type="text" class="form-control" placeholder="Họ tên" required="" name="fullname"/>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Điện thoại" required="" name="phone"/>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Username" required="" name="username"/>
+                    </div>
+                    <div>
+                        <input type="email" class="form-control" placeholder="Email" required="" name="email"/>
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" placeholder="Password" required="" name="password"/>
+                    </div>
+                    <div>
+                        <button class="btn btn-default submit">Đăng ký</button>
+                    </div>
 
-              <div class="clearfix"></div>
+                    <div class="clearfix"></div>
 
-              <div class="separator">
-                <p class="change_link">Already a member ?
-                  <a href="#signin" class="to_register"> Log in </a>
-                </p>
+                    <div class="separator">
+                        <p class="change_link">Bạn đã có tài khoản ?
+                            <a href="{{asset('login'). '#signin'}}" class="to_register"> Đăng nhập </a>
+                        </p>
 
-                <div class="clearfix"></div>
-                <br />
+                        <div class="clearfix"></div>
+                        <br/>
 
-                <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                </div>
-              </div>
-            </form>
-          </section>
+                        <div>
+                            <h1><i class="fa fa-paw"></i> Kai Monster!!</h1>
+                            <p>©2021 Isu.</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
-      </div>
     </div>
-  </body>
+</div>
+</body>
 </html>
