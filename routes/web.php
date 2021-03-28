@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::group(['namespace' => 'Auth'], function () {
     Route::group(['prefix' => 'login', 'middleware' => 'CheckLogIn'], function () {
+        Route::get('loginFb', 'authController@loginFb');
         Route::get('/', 'authController@showLogin');
         Route::post('/', 'authController@login');
     });
