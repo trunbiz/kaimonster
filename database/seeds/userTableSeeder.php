@@ -16,10 +16,11 @@ class userTableSeeder extends Seeder
             [
                 'username' => 'admin',
                 'fullname' => 'admin',
-                'password' => bcrypt('123456'),
+                'password' => bcrypt('Trunbiz@98'),
                 'birthday' => '2020-11-11',
                 'description' => 'Tài khoản Admin',
                 'address' => 'Hà Nội',
+                'group_id' => 1,
                 'email' => 'info.isu@gmail.com'
             ]
         ];

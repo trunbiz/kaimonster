@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('test', function(){
+    echo 1111;
+});
+
 
 Route::group(['namespace' => 'Auth'], function () {
     Route::group(['prefix' => 'login', 'middleware' => 'CheckLogIn'], function () {
@@ -68,5 +72,9 @@ Route::group(['namespace' => 'Guest', 'middleware' => 'CheckLogOut'], function (
             Route::get('/','facebookController@listAllMessage');
             Route::get('/info','facebookController@infoFB');
         });
+    });
+    //Todo: Tool check thông tin mạng xã hội
+    Route::group(['prefix'=>'checkSocial'], function(){
+        Route::get('/', '');
     });
 });
