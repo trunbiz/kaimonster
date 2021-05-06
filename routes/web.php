@@ -75,6 +75,6 @@ Route::group(['namespace' => 'Guest', 'middleware' => 'CheckLogOut'], function (
     });
     //Todo: Tool check thông tin mạng xã hội
     Route::group(['prefix'=>'checkSocial'], function(){
-        Route::get('/', '');
+//        Route::get('/', '');
     });
 });
