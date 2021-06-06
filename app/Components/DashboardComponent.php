@@ -1,20 +1,8 @@
 <?php
 
-namespace App\Repositories\Admin;
-
-use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 use App\ApiGuzzle;
-//use Your Model
 
-/**
- * Class DashboardRepository.
- */
-class DashboardRepository
-{
-    /**
-     * @return string
-     *  Return the model
-     */
+class DashboardComponent{
     private $apiGuzzle;
     public function __construct()
     {

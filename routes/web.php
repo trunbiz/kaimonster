@@ -22,16 +22,18 @@ Route::get('test', function(){
 
 
 Route::group(['namespace' => 'Auth'], function () {
-    Route::group(['prefix' => 'login', 'middleware' => 'CheckLogIn'], function () {
-        Route::get('loginFb', 'authController@loginFb');
-        Route::get('/', 'authController@showLogin');
-        Route::post('/', 'authController@login');
+    Route::group(['middleware' => 'CheckLogIn'], function (){
+        Route::group(['prefix' => 'login'], function () {
+            Route::get('loginFb', 'authController@loginFb');
+            Route::get('/', 'authController@showLogin');
+            Route::post('/', 'authController@login');
+        });
+        Route::group(['prefix' => 'register'], function () {
+            Route::get('/', 'authController@showSingUp');
+            Route::post('/', 'authController@register');
+        });
     });
-    Route::group(['prefix' => 'register'], function () {
-        Route::get('/', 'authController@showSingUp');
-        Route::post('/', 'authController@register');
-    });
-
+    // Đăng xuất
     Route::get('logout', 'authController@logout');
 });
 

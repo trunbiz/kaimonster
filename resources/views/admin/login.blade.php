@@ -45,13 +45,13 @@
                         <a class="reset_pass" href="#">Quên mật khẩu?</a>
                     </div>
                     <div class="clearfix"></div>
-                    <div>
-                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+{{--                    <div>--}}
+{{--                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>--}}
 
-                        <div id="status"></div>
-                        <!-- Load the JS SDK asynchronously -->
-                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-                    </div>
+{{--                        <div id="status"></div>--}}
+{{--                        <!-- Load the JS SDK asynchronously -->--}}
+{{--                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>--}}
+{{--                    </div>--}}
                     <div class="clearfix"></div>
                     <div class="separator">
                         <p class="change_link">Bạn chưa có tài khoản?
@@ -132,10 +132,12 @@
     }
 
 
-    function checkLoginState() {               // Called when a person is finished with the Login Button.
-        FB.getLoginStatus(function(response) {   // See the onlogin handler
-            statusChangeCallback(response);
-        });
+    function checkLoginState() {
+        return alert("Sorry! Function is under maintenance");
+        // Called when a person is finished with the Login Button.
+        // FB.getLoginStatus(function(response) {   // See the onlogin handler
+        //     statusChangeCallback(response);
+        // });
     }
 
 
