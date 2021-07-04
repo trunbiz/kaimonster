@@ -7,10 +7,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+    <link rel="icon" href="{{asset('asset/images/ICON_SINO.png')}}" type="image/png" />
 
     {{--<title>@yield('title') | </title>--}}
-    <title>Kai</title>
+    <title>Sino - Dõi bước theo bạn</title>
 
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="{{asset('/')}}" class="site_title"><i class="fa fa-paw"></i> <span>isu!</span></a>
+                    <a href="{{asset('/')}}" class="site_title"><i class="fa fa-paper-plane-o"></i> <span>sino!</span></a>
                 </div>
 
                 <div class="clearfix"></div>

@@ -1,5 +1,5 @@
 @extends('admin.base')
-@section('title','Isu - DevBasic')
+@section('title','sino - Dõi bước theo bạn')
 @section('main')
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

@@ -21,7 +21,7 @@ class userTableSeeder extends Seeder
                 'description' => 'Tài khoản Admin',
                 'address' => 'Hà Nội',
                 'group_id' => 1,
-                'email' => 'info.isu@gmail.com'
+                'email' => 'info.sino@gmail.com'
             ]
         ];
         DB::table('users')->insert($data);

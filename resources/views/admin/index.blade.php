@@ -1,5 +1,5 @@
 @extends('admin.base')
-@section('title','Isu - DevBasic')
+@section('title','sino - dõi bước theo bạn')
 @section('main')
     <!-- top tiles -->
     <div class="row" style="display: inline-block;">

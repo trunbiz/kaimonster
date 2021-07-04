@@ -62,8 +62,8 @@
                         <br/>
 
                         <div>
-                            <h1><i class="fa fa-paw"></i> Kai Monster!</h1>
-                            <p>©2021 Isu.</p>
+                            <h1><i class="fa fa-paper-plane-o"></i> Kai Monster!</h1>
+                            <p>©2021 Sino.</p>
                         </div>
                     </div>
                 </form>
@@ -108,8 +108,8 @@
                         <br/>
 
                         <div>
-                            <h1><i class="fa fa-paw"></i> Kai Monster!!</h1>
-                            <p>©2021 Isu.</p>
+                            <h1><i class="fa fa-paper-plane-o"></i> Kai Monster!!</h1>
+                            <p>©2021 Sino.</p>
                         </div>
                     </div>
                 </form>
