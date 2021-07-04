@@ -25,7 +25,7 @@ class Users extends Migration
             $table->integer('group_id')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->integer('is_delete')->default(0);
+            $table->integer('is_active')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
