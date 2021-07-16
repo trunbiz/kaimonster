@@ -122,6 +122,7 @@
                         <th>Điện thoại</th>
                         <th>Địa chỉ</th>
                         <th>Ngày sinh</th>
+                        <th>Group</th>
                         <th>Thời gian chỉnh sửa</th>
                         <th>Tùy chọn</th>
                     </tr>
@@ -136,6 +137,7 @@
                             <td>{{$user->phone}}</td>
                             <td>{{$user->address}}</td>
                             <td>{{$user->birthday}}</td>
+                            <td>{{$user->group_name}}</td>
                             <td>{{$user->updated_at}}</td>
                             <td>
                                 <button type="button" class="btn btn-outline-primary btn-sm edit" data-toggle="modal"

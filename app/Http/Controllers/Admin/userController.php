@@ -18,8 +18,9 @@ class userController extends Controller
     }
 
     public function listAll(){
-        $data['users'] = User::all();
+//        $data['users'] = User::all();
         $data['groups'] = Groups::all();
+        $data['users'] = User::getAllUser();
         return view('admin.users', $data);
     }
 

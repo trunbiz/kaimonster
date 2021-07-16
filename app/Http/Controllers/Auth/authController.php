@@ -46,7 +46,7 @@ class authController extends Controller
         $email = $request->email;
         if ($user->checkDuplicateData($request)){
             $user->addItem($request);
-            Mail::to($email)->send( new SendMail(['emails' => $email]));
+//            Mail::to($email)->send( new SendMail(['emails' => $email]));
             return redirect()->intended('login');
         }
         return redirect()->intended('login#signup')->withInput()->with('messageUser', 'Tài khoản đã tồn tại');

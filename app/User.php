@@ -91,4 +91,18 @@ class User extends Authenticatable
             return $ex;
         }
     }
+
+    public static function getInfoUser($user_id = null, $username = null){
+        $item = User::where('id', $user_id)
+            ->join('groups', 'groups.id', '=', 'users.group_id')
+            ->get();
+        return $item;
+    }
+
+    public static function getAllUser(){
+        $item = User::join('groups', 'groups.id', '=', 'users.group_id')
+            ->select('users.*', 'groups.name as group_name')
+            ->get();
+        return $item;
+    }
 }
